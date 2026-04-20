@@ -28,3 +28,11 @@ output "test_cluster_name" {
 output "prod_cluster_name" {
   value = module.aks.prod_cluster_name
 }
+
+output "acr_name" {
+  value = module.acr.acr_name
+}
+
+output "acr_login_server" {
+  value = module.acr.acr_login_server
+}

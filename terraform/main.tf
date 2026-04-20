@@ -8,3 +8,8 @@ module "aks" {
   test_subnet_id      = module.network.test_subnet_id
   prod_subnet_id      = module.network.prod_subnet_id
 }
+
+module "acr" {
+  source              = "./modules/acr"
+  resource_group_name = module.network.resource_group_name
+}
