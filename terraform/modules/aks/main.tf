@@ -4,12 +4,17 @@ resource "azurerm_kubernetes_cluster" "test" {
   resource_group_name = var.resource_group_name
   dns_prefix          = "cst8918testaks"
   kubernetes_version  = var.kubernetes_version
+  oidc_issuer_enabled = true
 
   default_node_pool {
     name           = "system"
     node_count     = 1
     vm_size        = var.node_vm_size
     vnet_subnet_id = var.test_subnet_id
+
+    upgrade_settings {
+      max_surge = "10%"
+    }
   }
 
   identity {
@@ -32,6 +37,7 @@ resource "azurerm_kubernetes_cluster" "prod" {
   resource_group_name = var.resource_group_name
   dns_prefix          = "cst8918prodaks"
   kubernetes_version  = var.kubernetes_version
+  oidc_issuer_enabled = true
 
   default_node_pool {
     name                = "system"
@@ -40,6 +46,10 @@ resource "azurerm_kubernetes_cluster" "prod" {
     enable_auto_scaling = true
     min_count           = 1
     max_count           = 3
+
+    upgrade_settings {
+      max_surge = "10%"
+    }
   }
 
   identity {
