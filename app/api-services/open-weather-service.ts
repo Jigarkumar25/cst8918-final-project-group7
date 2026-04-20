@@ -1,4 +1,4 @@
-import { redis } from '~/utils/redis-connection.server'
+import { redis } from '../utils/redis-connection.server'
 
 const API_KEY = process.env.WEATHER_API_KEY
 const TEN_MINUTES_MS = 1000 * 60 * 10
