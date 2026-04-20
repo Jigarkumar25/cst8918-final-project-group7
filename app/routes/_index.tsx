@@ -2,7 +2,7 @@ import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import type { LoaderFunctionArgs } from '@remix-run/node'
 
-import { fetchWeatherData } from '~/api-services/open-weather-service'
+import { fetchWeatherData } from '../api-services/open-weather-service'
 
 export async function loader({ request }: LoaderFunctionArgs) {
   // NOTE: Use whatever lat/lon/units your project already uses.
